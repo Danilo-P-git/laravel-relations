@@ -1,6 +1,7 @@
 <?php
 
 use App\Author;
+use App\Comic;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 

@@ -1,7 +1,7 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
+use App\Author;
 use App\Comic;
 
 class ComicsTableSeeder extends Seeder
@@ -13,6 +13,7 @@ class ComicsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+
       for ($i = 0; $i < 20; $i++) {
 
             $newComic = new Comic;
@@ -20,7 +21,8 @@ class ComicsTableSeeder extends Seeder
             if(rand(0,1) == 1) {
                 $newComic->original_title = $faker->text(50);
             }
-            $newComic->author = $faker->name();
+            $authorId = Author::inRandomOrder()->first();
+            $newComic->authors_id = $authorId->id;
             $newComic->number = $faker->numberBetween(1, 1000);
             $newComic->n_pages = $faker->numberBetween(20, 400);
             $newComic->edition = $faker->company();

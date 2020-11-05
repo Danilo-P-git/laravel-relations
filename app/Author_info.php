@@ -4,9 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comic extends Model
+class Author_info extends Model
 {
-    public function authors(){
+    protected $table = "Authors_info";
+
+    public function author(){
         return $this->belongTo('App\Author');
-      }
+    }
+
 }
